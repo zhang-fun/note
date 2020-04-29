@@ -2,80 +2,236 @@
 
 # 1.Git是什么
 
-Git是目前世界上最先进的分布式版本控制系统。
-工作原理 / 流程：
-![图片描述](https://img.mukewang.com/59c31e4400013bc911720340.png)
-Workspace：工作区
-Index / Stage：暂存区
-Repository：仓库区（或本地仓库）
-Remote：远程仓库
+参考笔记：https://github.com/Eished/git_notes
+
+课程链接：https://www.bilibili.com/video/BV1sJ411D7xN
+
+Git是目前世界上最先进的分布式版本控制系统。![git操作通用流程](https://user-gold-cdn.xitu.io/2018/4/25/162fcc0987bf1c0a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+主要涉及到四个关键点：
+
+1. 工作区：本地电脑存放项目文件的地方，比如learnGitProject文件夹；
+2. 暂存区（Index/Stage）：在使用git管理项目文件的时候，其本地的项目文件会多出一个.git的文件夹，将这个.git文件夹称之为版本库。其中.git文件夹中包含了两个部分，一个是暂存区（Index或者Stage）,顾名思义就是暂时存放文件的地方，通常使用add命令将工作区的文件添加到暂存区里；
+3. 本地仓库：.git文件夹里还包括git自动创建的master分支，并且将HEAD指针指向master分支。使用commit命令可以将暂存区中的文件添加到本地仓库中；
+4. 远程仓库：不是在本地仓库中，项目代码在远程git服务器上，比如项目放在github上，就是一个远程仓库，通常使用clone命令将远程仓库拷贝到本地仓库中，开发后推送到远程仓库中即可；
+
+更细节的来看：
+
+
+
+![git几个核心区域间的关系](https://user-gold-cdn.xitu.io/2018/4/25/162fcc0e7e711dc7?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+
+
+日常开发时代码实际上放置在工作区中，也就是本地的XXX.java这些文件，通过add等这些命令将代码文教提交给暂存区（Index/Stage），也就意味着代码全权交给了git进行管理，之后通过commit等命令将暂存区提交给master分支上，也就是意味打了一个版本，也可以说代码提交到了本地仓库中。另外，团队协作过程中自然而然还涉及到与远程仓库的交互。
+
+因此，经过这样的分析，git命令可以分为这样的逻辑进行理解和记忆：
+
+1. git管理配置的命令；
+
+   **几个核心存储区的交互命令：**
+
+2. 工作区与暂存区的交互；
+
+3. 暂存区与本地仓库（分支）上的交互；
+
+4. 本地仓库与远程仓库的交互。
 
 # 2.Git的安装
 
-## 2.1安装路径
+## 2.1下载和安装
 
-国内安装包下载地址：https://npm.taobao.org/mirrors/git-for-windows/
+- 官网下载地址： https://git-scm.com/downloads
+
+- 国内下载地址：https://npm.taobao.org/mirrors/git-for-windows/
+
+- 使用默认值安装
+
+- 资源管理器内单击鼠标右键选择 ` Git Bash Here `
+
+- 输入` git --version ` 检查是否安装成功
+
+  **推荐使用国内下载地址，下载速度较快。**
 
 参考链接：https://blog.csdn.net/u011535541/article/details/83379151
 
-# 3.Git初始化
+# 3.Git配置和初始化
 
 ## 3.1配置
 
-安装完成后，还需要最后一步设置，在命令行输入如下：
+在使用前告诉git你是谁：
 
-![图片描述](https://img.mukewang.com/59c1d041000110d906460213.jpg)
+### 3.1.1配置用户信息
 
-配置命令：
+第一次使用git，配置用户信息
 
-git config --global user.name "name"
+1. 配置用户名：`git config --global user.name "your name"`;
 
-git config --global user.email "123456@qq.com"
+2. 配置用户邮箱：`git config --global user.email "youremail@github.com"`;
 
-查看配置命令：
+   **注意**：git config --global 参数，有了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然你也可以对某个仓库指定的不同的用户名和邮箱
 
-git config --global --list
+### 3.1.2查询配置信息
+
+1. 列出当前配置：`git config --list`;
+2. 列出repository配置：`git config --local --list`;
+3. 列出全局配置：`git config --global --list`;
+4. 列出系统配置：`git config --system --list`;
+
+### 3.1.3其他配置
+
+1. 配置解决冲突时使用哪种差异分析工具，比如要使用vimdiff：`git config --global merge.tool vimdiff`;
+2. 配置git命令输出为彩色的：`git config --global color.ui auto`;
+3. 配置git使用的文本编辑器：`git config --global core.editor vi`;
+
+1. > 注：
+
+   1. 更改-->重复上述命令
+   2. 也可直接修改 `` C:\Users\用户\.gitconfig ``
 
 因为Git是分布式版本控制系统，所以需要填写用户名和邮箱作为一个标识。
-
-注意：git config --global 参数，有了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然你也可以对某个仓库指定的不同的用户名和邮箱。
 
 pwd 命令是用于显示当前的目录。
 
 ## 3.2初始化
 
-通过命令 git init 把这个所在目录变成git可以管理的仓库，如下：
+### 3.2.1新建仓库
 
-![图片描述](https://img.mukewang.com/59c1d12b0001b08305270077.png)
+将工作区中的项目文件使用git进行管理，即创建一个新的本地仓库：`git init`；
+
+### 3.2.2克隆仓库
+
+从远程git仓库复制项目：`git clone `; 克隆项目时如果想定义新的项目名，可以在clone命令后指定新的项目名：`git clone git://github.com/wasd/example.git NewName`；
 
 这时候你当前testgit目录下会多了一个.git的目录，这个目录是Git来跟踪管理版本的，没事千万不要手动乱改这个目录里面的文件，否则，会把git仓库给破坏了。
 
-# 4.Git常用操作
+# 4.Git基础操作
 
-## 4.1复制远程仓库
+## 4.1 查看文件状态
 
-git clone 仓库地址
+> 查询信息
 
-## 4.2新建文件
+1. 查询当前工作区所有文件的状态：`git status`;
+2. 比较工作区中当前文件和暂存区之间的差异，也就是修改之后还没有暂存的内容：git diff；指定文件在工作区和暂存区上差异比较：`git diff `;
 
-touch file.txt
+## 4.2提交到暂存区
 
-## 4.3添加到暂存区
+> 提交
 
-git add file.txt
+1. 提交工作区所有文件到暂存区：`git add .`
+2. 提交工作区中指定文件到暂存区：`git add   ...`;
+3. 提交工作区中某个文件夹中所有文件到暂存区：`git add [dir]`;
 
-## 4.4查看状态
+## 4.3向仓库提交代码
 
-git status
+> 提交文件到版本库
 
-## 4.5提交到本地仓库
+1. 将暂存区中的文件提交到本地仓库中，即打上新版本：`git commit -m "commit_info"`;
+2. 将所有已经使用git管理过的文件暂存后一并提交，跳过add到暂存区的过程：`git commit -a -m "commit_info"`;
+3. 提交文件时，发现漏掉几个文件，或者注释写错了，可以撤销上一次提交：`git commit --amend`;
 
-git commit -m '这是备注'
+## 4.4查看提交记录
 
-## 4.5上传到git远程仓库
+> 查看信息
+
+1. 比较暂存区与上一版本的差异：`git diff --cached`;
+2. 指定文件在暂存区和本地仓库的不同：`git diff  --cached`;
+3. 查看提交历史：git log；参数`-p`展开每次提交的内容差异，用`-2`显示最近的两次更新，如`git log -p -2`;
+
+## 4.5撤销
+
+* 用暂存区中的文件覆盖工作目录中的文件：`` git checkout -- 文件名 ``  不加 ` -- 文件名 `则覆盖全部文件
+
+* 将文件从暂存区中删除：`` git rm --cached 文件名 ``
+
+* 将git仓库中指定的更新记录恢复出来，并且覆盖暂存区和工作目录：`` git reset --hard commitID``  
+
+* > > 撤销
+  >
+  > 1. 删除工作区文件，并且也从暂存区删除对应文件的记录：`git rm  `;
+  > 2. 从暂存区中删除文件，但是工作区依然还有该文件:`git rm --cached `;
+  > 3. 取消暂存区已经暂存的文件：`git reset HEAD ...`;
+  > 4. 撤销上一次对文件的操作：`git checkout --`。要确定上一次对文件的修改不再需要，如果想保留上一次的修改以备以后继续工作，可以使用stashing和分支来处理；
+  > 5. 隐藏当前变更，以便能够切换分支：`git stash`；
+  > 6. 查看当前所有的储藏：`git stash list`；
+  > 7. 应用最新的储藏：`git stash apply`，如果想应用更早的储藏：`git stash apply stash@{2}`；重新应用被暂存的变更，需要加上`--index`参数：`git stash apply --index`;
+  > 8. 使用apply命令只是应用储藏，而内容仍然还在栈上，需要移除指定的储藏：`git stash drop stash{0}`；如果使用pop命令不仅可以重新应用储藏，还可以立刻从堆栈中清除：`git stash pop`;
+  > 9. 在某些情况下，你可能想应用储藏的修改，在进行了一些其他的修改后，又要取消之前所应用储藏的修改。Git没有提供类似于 stash unapply 的命令，但是可以通过取消该储藏的补丁达到同样的效果：`git stash show -p stash@{0} | git apply -R`；同样的，如果你沒有指定具体的某个储藏，Git 会选择最近的储藏：`git stash show -p | git apply -R`；
+  >
+  > > 更新文件
+  >
+  > 1. 重命名文件，并将已改名文件提交到暂存区：`git mv [file-original] [file-renamed]`;
+
+## 4.6上传到git远程仓库
 
  git push origin master
 
-## 4.6更新远程仓库到本地
+## 4.7更新远程仓库到本地
 
 git pull
+
+# 5.Git进阶操作
+
+## 5.1分支
+
+生成副本，避免影响开发主线
+
+#### 分支细分
+
+1. 主分支（master）：第一次向git仓库提交更新记录时自动产生的一个分支。
+2. 开发分支（develop）：作为开发的分支，基于master分支创建。
+3. 功能分支（feature）：作为开发具体功能的分支基于开发分支创建。
+
+#### 分支命令 
+
+- ` git branch ` 查看分支
+- ` git branch 分支名称 ` 创建分支
+- ` git checkout 分支名称 ` 切换分支
+- ` git merge 来源分支 ` 合并分支
+- ` git branch -d 分支名称 ` 删除分支（分支合并后才允许被删除）（-D 大写强制删除）
+  - `git push origin :branch-name` : 远程仓库同步删除掉的分支
+
+注意：
+
+​		开发分支文件后要 `commit` 后再切换主分支，否则分支文件会出现在主分支里面。
+
+> > 分支管理
+>
+> 1. 创建分支：`git branch `，如`git branch testing`；
+> 2. 从当前所处的分支切换到其他分支：`git checkout `，如`git checkout testing`；
+> 3. 新建并切换到新建分支上：`git checkout -b `;
+> 4. 删除分支：`git branch -d `；
+> 5. 将当前分支与指定分支进行合并：`git merge `;
+> 6. 显示本地仓库的所有分支：`git branch`;
+> 7. 查看各个分支最后一个提交对象的信息：`git branch -v`;
+> 8. 查看哪些分支已经合并到当前分支：`git branch --merged`;
+> 9. 查看当前哪些分支还没有合并到当前分支：`git branch --no-merged`;
+> 10. 把远程分支合并到当前分支：`git merge /`，如`git merge origin/serverfix`；如果是单线的历史分支不存在任何需要解决的分歧，只是简单的将HEAD指针前移，所以这种合并过程可以称为快进（Fast forward），而如果是历史分支是分叉的，会以当前分叉的两个分支作为两个祖先，创建新的提交对象；如果在合并分支时，遇到合并冲突需要人工解决后，再才能提交；
+> 11. 在远程分支的基础上创建新的本地分支`：git checkout -b  /`，如`git checkout -b serverfix origin/serverfix`;
+> 12. 从远程分支checkout出来的本地分支，称之为跟踪分支。在跟踪分支上向远程分支上推送内容：`git push`。该命令会自动判断应该向远程仓库中的哪个分支推送数据；在跟踪分支上合并远程分支：`git pull`；
+> 13. 将一个分支里提交的改变移到基底分支上重放一遍：`git rebase  `，如`git rebase master server`，将特性分支server提交的改变在基底分支master上重演一遍；使用rebase操作最大的好处是像在单个分支上操作的，提交的修改历史也是一根线；如果想把基于一个特性分支上的另一个特性分支变基到其他分支上，可以使用`--onto`操作：`git rebase --onto   `，如`git rebase --onto master server client`；使用rebase操作应该遵循的原则是：**一旦分支中的提交对象发布到公共仓库，就千万不要对该分支进行rebase操作**；
+
+## 5.2暂时保存更改
+
+git中可以不提交更改，只提取分支上所有改动并储存，让开发人员得到一个干净的副本，临时转向其它工作。复制到“剪切板”，可以“粘贴“到其它分支。
+
+场景：
+
+- 储存临时改动：` git stash `
+- 恢复临时改动：` git stash pop `
+
+## 5.3打标签
+
+> 打标签
+
+Git 使用的标签有两种类型：**轻量级的（lightweight）和含附注的（annotated）**。轻量级标签就像是个不会变化的分支，实际上它就是个指向特定提交对象的引用。而含附注标签，实际上是存储在仓库中的一个独立对象，它有自身的校验和信息，包含着标签的名字，电子邮件地址和日期，以及标签说明，标签本身也允许使用 GNU Privacy Guard (GPG) 来签署或验证。一般我们都建议使用含附注型的标签，以便保留相关信息；当然，如果只是临时性加注标签，或者不需要旁注额外信息，用轻量级标签也没问题。
+
+1. 列出现在所有的标签：`git tag`;
+2. 使用特定的搜索模式列出符合条件的标签，例如只对1.4.2系列的版本感兴趣：`git tag -l "v1.4.2.*"`;
+3. 创建一个含附注类型的标签，需要加`-a`参数，如`git tag -a v1.4 -m "my version 1.4"`;
+4. 使用git show命令查看相应标签的版本信息，并连同显示打标签时的提交对象：`git show v1.4`;
+5. 如果有自己的私钥，可以使用GPG来签署标签，只需要在命令中使用`-s`参数：`git tag -s v1.5 -m "my signed 1.5 tag"`;
+6. 验证已签署的标签：git tag -v ，如`git tag -v v1.5`;
+7. 创建一个轻量级标签的话，就直接使用git tag命令即可，连`-a`,`-s`以及`-m`选项都不需要，直接给出标签名字即可，如`git tag v1.5`;
+8. 将标签推送到远程仓库中：git push origin ，如`git push origin v1.5`；
+9. 将本地所有的标签全部推送到远程仓库中：`git push origin --tags`;
