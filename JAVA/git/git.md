@@ -97,11 +97,17 @@ pwd 命令是用于显示当前的目录。
 
 ### 3.2.1新建仓库
 
-将工作区中的项目文件使用git进行管理，即创建一个新的本地仓库：`git init`；
+`git init`
+
+将工作区中的项目文件使用git进行管理，即创建一个新的本地仓库。
 
 ### 3.2.2克隆仓库
 
-从远程git仓库复制项目：`git clone `; 克隆项目时如果想定义新的项目名，可以在clone命令后指定新的项目名：`git clone git://github.com/wasd/example.git NewName`；
+`git clone `
+
+从远程git仓库复制项目， 克隆项目时如果想定义新的项目名，可以在clone命令后指定新的项目名：
+
+`git clone git://github.com/wasd/example.git NewName`；
 
 这时候你当前testgit目录下会多了一个.git的目录，这个目录是Git来跟踪管理版本的，没事千万不要手动乱改这个目录里面的文件，否则，会把git仓库给破坏了。
 
@@ -111,32 +117,75 @@ pwd 命令是用于显示当前的目录。
 
 > 查询信息
 
-1. 查询当前工作区所有文件的状态：`git status`;
-2. 比较工作区中当前文件和暂存区之间的差异，也就是修改之后还没有暂存的内容：git diff；指定文件在工作区和暂存区上差异比较：`git diff `;
+1. `git status`
+
+   查询当前工作区所有文件的状态
+
+2. `git diff `
+
+   比较工作区中当前文件和暂存区之间的差异，也就是修改之后还没有暂存的内容：git diff；指定文件在工作区和暂存区上差异比较
 
 ## 4.2提交到暂存区
 
 > 提交
 
-1. 提交工作区所有文件到暂存区：`git add .`
-2. 提交工作区中指定文件到暂存区：`git add   ...`;
-3. 提交工作区中某个文件夹中所有文件到暂存区：`git add [dir]`;
+1. `git add .`
+
+   提交工作区所有文件到暂存区
+
+2. `git add   ...`
+
+   提交工作区中指定文件到暂存区
+
+3. `git add [dir]`
+
+   提交工作区中某个文件夹中所有文件到暂存区
 
 ## 4.3向仓库提交代码
 
 > 提交文件到版本库
 
-1. 将暂存区中的文件提交到本地仓库中，即打上新版本：`git commit -m "commit_info"`;
-2. 将所有已经使用git管理过的文件暂存后一并提交，跳过add到暂存区的过程：`git commit -a -m "commit_info"`;
-3. 提交文件时，发现漏掉几个文件，或者注释写错了，可以撤销上一次提交：`git commit --amend`;
+1. `git commit -m "commit_info"`
+
+   将暂存区中的文件提交到本地仓库中，即打上新版本
+
+2. `git commit -a -m "commit_info"`
+
+   将所有已经使用git管理过的文件暂存后一并提交，跳过add到暂存区的过程
+
+3. `git commit --amend`
+
+   提交文件时，发现漏掉几个文件，或者注释写错了，可以撤销上一次提交：;
 
 ## 4.4查看提交记录
 
 > 查看信息
 
-1. 比较暂存区与上一版本的差异：`git diff --cached`;
-2. 指定文件在暂存区和本地仓库的不同：`git diff  --cached`;
-3. 查看提交历史：git log；参数`-p`展开每次提交的内容差异，用`-2`显示最近的两次更新，如`git log -p -2`;
+1. `git diff --cached`
+
+   比较暂存区与上一版本的差异
+
+   指定文件在暂存区和本地仓库的不同
+
+2. `git log`
+
+   查看提交历史，参数`-p`展开每次提交的内容差异，用`-2`显示最近的两次更新，如`git log -p -2`;
+
+   git log 看不到回退版本号之后的版本记录
+
+3. `git log --pretty=oneline`
+
+   可以简化的查看日志
+
+4. `git reflog`
+
+   版本回退后,仍然可以看到所有的版本记录 方便查看每个操作步骤所在的版本,可以根据版本号自由前进后退
+
+5. 
+
+   
+
+   
 
 ## 4.5撤销
 
@@ -235,3 +284,44 @@ Git 使用的标签有两种类型：**轻量级的（lightweight）和含附注
 7. 创建一个轻量级标签的话，就直接使用git tag命令即可，连`-a`,`-s`以及`-m`选项都不需要，直接给出标签名字即可，如`git tag v1.5`;
 8. 将标签推送到远程仓库中：git push origin ，如`git push origin v1.5`；
 9. 将本地所有的标签全部推送到远程仓库中：`git push origin --tags`;
+
+# 6.Github
+
+## 6.1修改config设置登陆
+
+.git/config里有url = https://github.com/aaa/bbb.git
+
+修改为url = https://username:password@github.com/aaa/bbb.git
+
+username为你的gitHub账户名
+
+password为你的gitHub密码
+
+## 6.2基于SSH协议
+
+需要自行安装OpenSSH软件
+
+1. 生成密钥：` ssh-keygen -t rsa -C "注册邮箱"`
+
+   执行指令后连续回车即可
+
+   密匙储存目录：` C:\User\用户\\.ssh`
+
+   公钥名称：` id_rsa.pub` 
+
+   私钥名称：` id_rsa`
+
+2. Github添加公钥
+
+   全部复制公钥里内容进行添加
+
+   ![](../../../../360downloads/git_notes-master/git_notes/20191115165957.png)
+
+3. 复制SSH地址：
+
+   ![](../../../../360downloads/git_notes-master/git_notes/20191115170348.png)
+
+4. 设置ssh别名：`$ git remote add origin_ssh SSH地址 ` 
+
+5. 远程推送：` $ git push origin_ssh master` 
+
