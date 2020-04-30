@@ -249,7 +249,7 @@ git pull
 > 1. 创建分支：`git branch `，如`git branch testing`；
 > 2. 从当前所处的分支切换到其他分支：`git checkout `，如`git checkout testing`；
 > 3. 新建并切换到新建分支上：`git checkout -b `;
-> 4. 删除分支：`git branch -d `；
+> 4. 删除分支：`git branch -d `；如`git branch -d testing，要退出要删除的分支
 > 5. 将当前分支与指定分支进行合并：`git merge `;
 > 6. 显示本地仓库的所有分支：`git branch`;
 > 7. 查看各个分支最后一个提交对象的信息：`git branch -v`;
@@ -315,13 +315,14 @@ password为你的gitHub密码
 
    全部复制公钥里内容进行添加
 
-   ![](../../../../360downloads/git_notes-master/git_notes/20191115165957.png)
+   ![20191115165957](https://s1.ax1x.com/2020/04/30/JHaxFs.png)
 
 3. 复制SSH地址：
 
-   ![](../../../../360downloads/git_notes-master/git_notes/20191115170348.png)
+   ![20191115170348](https://s1.ax1x.com/2020/04/30/JHdPyT.png)
 
 4. 设置ssh别名：`$ git remote add origin_ssh SSH地址 ` 
 
 5. 远程推送：` $ git push origin_ssh master` 
 
+练习一把分支，这是dev分支创建的
