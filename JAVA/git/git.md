@@ -259,6 +259,7 @@ git pull
 > 11. 在远程分支的基础上创建新的本地分支`：git checkout -b  /`，如`git checkout -b serverfix origin/serverfix`;
 > 12. 从远程分支checkout出来的本地分支，称之为跟踪分支。在跟踪分支上向远程分支上推送内容：`git push`。该命令会自动判断应该向远程仓库中的哪个分支推送数据；在跟踪分支上合并远程分支：`git pull`；
 > 13. 将一个分支里提交的改变移到基底分支上重放一遍：`git rebase  `，如`git rebase master server`，将特性分支server提交的改变在基底分支master上重演一遍；使用rebase操作最大的好处是像在单个分支上操作的，提交的修改历史也是一根线；如果想把基于一个特性分支上的另一个特性分支变基到其他分支上，可以使用`--onto`操作：`git rebase --onto   `，如`git rebase --onto master server client`；使用rebase操作应该遵循的原则是：**一旦分支中的提交对象发布到公共仓库，就千万不要对该分支进行rebase操作**；
+> 14. git push origin branchName  上传远程仓库到指定分支
 
 ## 5.2暂时保存更改
 
@@ -324,5 +325,3 @@ password为你的gitHub密码
 4. 设置ssh别名：`$ git remote add origin_ssh SSH地址 ` 
 
 5. 远程推送：` $ git push origin_ssh master` 
-
-练习一把分支，这是dev分支创建的
