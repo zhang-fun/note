@@ -1,3 +1,5 @@
+[课程地址：黑马程序员-IDEA快速使用入门视频](https://www.bilibili.com/video/BV1tW411M7QL)
+
 # 1.下载及安装
 
 ## 1.1下载
@@ -154,7 +156,9 @@
 
 ### 鼠标滚轮改变代码字体大小
 
-`Editor`->点击`General`->`Mouse`->`Change font size (Zoom) with Ctrl+Mouse Wheel`
+`Editor`->点击`General`
+
+`Mouse`->`Change font size (Zoom) with Ctrl+Mouse Wheel`
 
 ### 展示代码行数和方法分割线
 
@@ -362,11 +366,459 @@
 
 原文地址：https://www.cnblogs.com/jbml-154312/p/8479030.html
 
+## 3.8添加第三方依赖
 
+选中`WEB-INF`文件夹，右键`New`一个`Directory`：lib
 
+选中lib后，`File`->`Project Structure(Ctrl+Alt+Shift+S)`或者直接点击菜单栏上的`Project Structure`按钮	
 
+然后点击`Libraries`,再点击`+`加号，选择Java，找到刚刚创建的`lib`文件夹，然后在Modules里的`Dependencies`再选中`lib`即可，最后点击ok.
 
+## 3.9创建servlet
 
+src下包里直接`New`一个servlet即可，创建完成后发现会报错，需要添加Tomcat依赖
 
+选中项目后，`File`->`Project Structure(Ctrl+Alt+Shift+S)`或者直接点击菜单栏上的`Project Structure`按钮，在Modules里的`Dependencies`点右面`+`加号，选择`Library`选项，再选`Java`，选择出来后的Tomcat，点击`Add Selected`，再选中Tomcat，点击`Apply`和`OK`即可
 
+> servlet代码事例：
 
+```java
+//doPost方法里代码
+response.getWriter().write("hello servlet");
+//doGet方法里代码
+doPost(request,response);
+```
+
+> servlet配置(web.xml)
+
+```xml
+<servlet>
+    <servlet-name>HelloServlet</servlet-name>
+    <servlet-class>com.itheima.web.HelloServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>HelloServlet</servlet-name>
+    <url-pattern>/hello</url-pattern>
+</servlet-mapping>
+```
+
+重启Tomcat访问：http://localhost:8080/hello
+
+## 3.10Maven的配置
+
+`File`->`Settings`或者快捷键`Ctrl+Alt+S`->`Build,Execution,Deployment`->`Build Tools`->`Maven`
+
+`Maven home dircetory`：表示maven安装路径
+
+`User settings file`：表示maven仓库设置
+
+`Local repository`：表示maven本地仓库位置
+
+`Override`：表示覆盖默认配置，改为本地配置
+
+## 3.11创建Maven工程
+
+`File`->`New`->`Project`->``Maven``
+
+选中`Create from archeype`：表示从模板原型创建项目
+
+找到`org.apache.maven.archetypes:maven-archetype-quickstart`，点击Next
+
+```java
+输入groupId和artifactId，比如：
+groupId：com.itheima.maven
+artifactId：idea_javase_maven
+```
+
+然后选择对应的maven
+
+## 3.12Maven视图介绍
+
+右面`Maven Projects`可执行一些maven操作
+
+参考链接：https://www.jianshu.com/p/942be26a03e0
+
+<img src="https://img2018.cnblogs.com/blog/1242944/201906/1242944-20190629175705462-531469084.png" alt="img" style="zoom:67%;" />
+
+参考链接：https://www.jianshu.com/p/942be26a03e0
+
+<img src="https://upload-images.jianshu.io/upload_images/2495229-5d3f62d2d7a789a2.png?imageMogr2/auto-orient/strip|imageView2/2/w/443/format/webp" alt="img" style="zoom:67%;" />
+
+工具栏按钮的作用
+
+参考链接：https://blog.csdn.net/qq_22515647/article/details/82142399
+
+<img src="https://img-blog.csdn.net/20180828092827104?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIyNTE1NjQ3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img" style="zoom: 67%;" />
+
+1.Execute Maven Goal  弹出可执行的 Maven 命令的输入框。有些情况下我们需要通过书写某些执行命令来构建项目，就可以通过此按钮
+
+2.Toggle Offline Mode 英文释义 https://blog.csdn.net/tanga842428/article/details/53206783?locationNum=10&fps=1(大概就是把maven 的网络关闭,必须使用本地资源)
+
+3.toggle "skip test" mode 不但跳过单元测试的运行，也跳过测试代码的编译。
+
+4.Show Dependencies 显示项目依赖的结构图，可以方便我们直观项目的依赖包情况。https://blog.csdn.net/qq_27093465/article/details/69226949
+
+5.collapse all 收起所有
+
+<img src="https://img-blog.csdnimg.cn/20190528003938594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjczNzg2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" style="zoom:67%;" />
+
+## 3.13Maven创建javaWeb工程
+
+`File`->`New`->`Project`->``Maven``
+
+选中`Create from archeype`：表示从模板原型创建项目
+
+找到`org.apache.maven.archetypes:maven-archetype-webapp`，点击Next
+
+```java
+输入groupId和artifactId，比如：
+groupId：com.itheima.maven
+artifactId：idea_javase_maven
+```
+
+然后选择对应的maven
+
+在src/main下分别创建java和resources文件夹
+
+分别选中创建的文件夹，右键后点击`Mark Directory as`分别对应`Sources Root`和`ReSources Root`
+
+>  **在`pom.xml`里增加Tomcat插件**
+>
+> <plugin>在<build>里的<plugins>里
+>
+> 注意不是写在<pluginManagement>里，写到这里会找不到插件
+
+```
+<!--Tomcat插件-->
+<plugin>
+  <groupId>org.apache.tomcat.maven</groupId>
+  <artifactId>tomcat7-maven-plugin</artifactId>
+  <version>2.2</version>
+  <configuration>
+      <port>9999</port>
+      <path>/</path>
+  </configuration>
+</plugin>
+```
+
+然后去右面的`Maven Projects`视图里
+
+找到项项目里的`Plugins`的`tomcat7`，点击`tomcat7`里的`tomcat7:run`即可启动项目
+
+也可以用命令的方式在`Execute Maven Goal`按钮进行启动`tomcat7:run`
+
+## 3.14Maven创建聚合工程
+
+1. 先创建父工程：idea_mall
+
+   ```
+   idea_mall
+   idea_portal
+   idea_back
+   ```
+
+   `File`->`New`->`Project`->``Maven``
+
+   选中`Create from archeype`：表示从模板原型创建项目
+
+   找到`org.apache.maven.archetypes:maven-archetype-site`，点击Next
+
+   ```java
+   输入groupId和artifactId，比如：
+   groupId：com.itheima
+   artifactId：idea_mall
+   ```
+
+2. 为idea_mall创建子模块：idea_portal
+
+   ```
+   idea_portal
+   
+   	idea_portal_dao
+   
+   	idea_portal_service
+   
+   	idea_portal_web
+   ```
+
+   在idea_mall项目增加一个idea_portal项目
+
+   选中idea_mall然后右键->`New`->`Module`
+
+   找到`org.apache.maven.archetypes:maven-archetype-site`，点击Next
+
+   ```java
+   输入groupId和artifactId，比如：
+   groupId：com.itheima
+   artifactId：idea_portal
+   ```
+
+   在最后一步时`Content root`和`Module file location`
+
+   保持idea_portal和idea_mall同级，不要放在idea_mall路径的下面
+
+3. 为idea_portal创建子模块：idea_portal_dao
+
+   在idea_portal项目增加一个idea_portal_dao模块
+
+   选中idea_portal然后右键->`New`->`Module`
+
+   找到`org.apache.maven.archetypes:maven-archetype-quickstart`，点击Next
+
+   ```java
+   输入groupId和artifactId，比如：
+   groupId：com.itheima
+   artifactId：idea_portal_dao
+   ```
+
+   在最后一步时`Content root`和`Module file location`
+
+   保持idea_portal_dao为idea_portal下级，放在idea_portal路径的下面
+
+4. 在idea_portal项目增加一个idea_portal_service模块
+
+   选中idea_portal然后右键->`New`->`Module`
+
+   找到`org.apache.maven.archetypes:maven-archetype-quickstart`，点击Next
+
+   ```java
+   输入groupId和artifactId，比如：
+   groupId：com.itheima
+   artifactId：idea_portal_service
+   ```
+
+   在最后一步时`Content root`和`Module file location`
+
+   保持idea_portal_service为idea_portal下级，放在idea_portal路径的下面
+
+   为idea_portal_service添加依赖，依赖idea_portal_service层
+
+   ```xml
+   <dependency>
+       <groupId>com.itheima</groupId>
+       <artifactId>idea_portal_service</artifactId>
+       <version>1.0-SNAPSHOT</version>
+   </dependency>
+   ```
+
+5. 在idea_portal项目增加一个idea_portal_web模块
+
+   选中idea_portal然后右键->`New`->`Module`
+
+   找到`org.apache.maven.archetypes:maven-archetype-webapp`，点击Next
+
+   ```java
+   输入groupId和artifactId，比如：
+   groupId：com.itheima
+   artifactId：idea_portal_web
+   ```
+
+   在最后一步时`Content root`和`Module file location`
+
+   保持idea_portal_web为idea_portal下级，放在idea_portal路径的下面
+
+   为idea_portal_web添加依赖，依赖idea_portal_dao层
+
+   ```xml
+   <dependency>
+       <groupId>com.itheima</groupId>
+       <artifactId>idea_portal_dao</artifactId>
+       <version>1.0-SNAPSHOT</version>
+   </dependency>
+   ```
+
+   
+
+6. 同样的创建idea_back子模块
+
+   ```
+   idea_back
+   
+   	idea_back_dao
+   
+   	idea_back_service
+   
+   	idea_back_web
+   ```
+
+## 3.15使用SVN管理代码
+
+## 3.16使用Git管理代码
+
+1. 开启版本控制
+
+   点击菜单栏`VCS`，选择`Enable Version Contral Integration`，再选择`Git`
+
+2. 设置忽略项
+
+   `File`->`Settings`->`Version Contral`->`Ignored Files`
+
+   点击加号，`Ignore specified file`忽略文件，如：idea_javaWeb_maven.iml文件
+
+   点击加号，`Ignore all files under`忽略文件夹，如：.idea文件夹
+
+3. 上传项目到本地仓库
+
+   点击菜单栏`VCS`，选择`Commit`
+
+4. 上传项目到远程仓库
+
+   点击菜单栏`VCS`，选择`Git`,点击`Push`即可
+
+# 4.常用快捷键
+
+Ctrl+Z：撤销
+
+Ctrl+Shift+Z：重做
+
+Ctrl+X：剪贴
+
+Ctrl+C：复制
+
+Ctrl+V：粘贴
+
+Ctrl+Y：删除当前行
+
+Ctrl+D:复制当前行
+
+Ctrl+Shift+J：将选中的行合并成一行
+
+Ctrl+N：查找类文件
+
+Ctrl+Shift+N：查找文件
+
+Ctrl+G：定位到文件某一行
+
+Alt+向左箭头：返回上次光标位置
+
+Alt+向右箭头：返回至后一次光标位置
+
+Ctrl+Shift+Backspace：返回上次编辑位置
+
+Ctrl+Shift+反斜杠：返回后一次编辑位置
+
+Ctrl+B：定位至变量定义的位置
+
+Ctrl+Alt+B：定位至选中类或者方法的具体实现
+
+Ctrl+Shift+B:直接定位至光标所在变量的类型定义
+
+Ctrl+U：直接定位至当前方法override或者implements的方法定义处
+
+Ctrl+F12：显示当前文件的文件结构
+
+Ctrl+Alt+F12：显示当前文件的路径，并可以方便的将相关父路径打开
+
+Ctrl+H：显示当前类的继承层次
+
+Ctrl+Shift+H：显示当前方法的继承层次
+
+Ctrl+Alt+H：显示当前方法的调用层次
+
+F2：定位至下一个错误处
+
+Shift+F2：定位至前一个错误处
+
+Ctrl+Alt+向上箭头：查找前一个变量共现的地方
+
+Ctrl+Alt+向下箭头：查找下一个变量共现的地方
+
+Ctrl+=：展开代码
+
+Ctrl+-：收缩代码
+
+Ctrl+Alt+=：递归展开代码
+
+Ctrl+Alt+-：递归收缩代码
+
+Ctrl+Shift+=：展开所有代码
+
+Ctrl+Shift+-：收缩所有代码
+
+Ctrl+Shitft+向下箭头：将光标所在的代码块向下整体移动
+
+Ctrl+Shift+向上箭头：将光标所在的代码块向上整体移动
+
+Ctrl+Alt+Shift+向左箭头：将元素向左移动
+
+Ctrl+Alt+Shift+向右箭头：将元素向右移动
+
+Alt+Shift+向下箭头：将行向下移动
+
+Alt+Shift+向上箭头：将行向上移动
+
+Ctrl+F：在当前文件中查找
+
+Ctrl+R：替换字符串
+
+Ctrl+Shift+F:在全局文件中查找字符串
+
+Ctrl+Shift+R：在全局中替换字符串
+
+Alt+F7：查找当前变量的使用，并列表显示
+
+Ctrl+Alt+F7：查找当前变量的使用，并直接对话框提示
+
+Ctrl+F7：在文件中查找符号的使用
+
+Ctrl+Shift+F7：在文件中高亮显示变量的使用
+
+Ctrl+O：重写基类方法
+
+Ctrl+I：实现基类或接口中的方法
+
+Alt+Insert：产生构造方法，get/set方法等
+
+Ctrl+Alt+T：将选中的代码使用if，while，try/catch等包装
+
+Ctrl+Shitf+Delete：去除相关的包装代码
+
+Alt+/：自动完成
+
+Alt+Enter：自动提示完成，抛出异常
+
+Ctrl+J：插入Live Template 快速插入一行或者多行代码
+
+Ctrl+Alt+J：使用Live Template包装
+
+Ctrl+/：使用//注释
+
+Ctrl+Shift+/：使用/\**/注释
+
+Ctrl+Alt+L：格式化代码
+
+Ctrl+Alt+I：自动缩进行
+
+Ctrl+Alt+O：优化import
+
+Ctrl+]：快速跳转至诸如{}围起来的代码块的结尾处
+
+Ctrl+[：快速跳转至诸如{}围起来的代码块的开头处
+
+Ctrl+Shift+Enter：将输入的if，for，函数等等补上{}或者；使代码语句完整
+
+Shift+Enter：在当前行的下方开始新行
+
+Ctrl+Alt+Enter：在当前行的上方插入新行
+
+Ctrl+Delete：删除光标所在至单词结尾处的所有字符
+
+Ctrl+Backspace：删除光标所在至单词开头处的所有字符
+
+Ctrl+向左箭头：将光标移至前一个单词
+
+Ctrl+向右箭头：将光标移至后一个单词
+
+Ctrl+向上箭头：向上滚动一行
+
+Ctrl+向下箭头：向下滚动一行
+
+Ctrl+W：选中整个单词
+
+Ctrl+Shift+U：切换大小写
+
+Shift+F6：重命名
+
+Ctrl+F6：更改函数签名
+
+Ctrl+Shift+F6：更改类型
