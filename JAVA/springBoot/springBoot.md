@@ -1,5 +1,23 @@
 [课程链接](https://www.bilibili.com/video/BV1QJ411v7bA)
-
+目录：
+- [1. Spring Boot简介](#1-spring-boot%e7%ae%80%e4%bb%8b)
+- [2.spingBoot入门](#2spingboot%e5%85%a5%e9%97%a8)
+  - [2.1spring的HelleWord](#21spring%e7%9a%84helleword)
+  - [2.2Java代码方式配置](#22java%e4%bb%a3%e7%a0%81%e6%96%b9%e5%bc%8f%e9%85%8d%e7%bd%ae)
+  - [2.3springBoot属性注入方式](#23springboot%e5%b1%9e%e6%80%a7%e6%b3%a8%e5%85%a5%e6%96%b9%e5%bc%8f)
+  - [2.4多个yml文件配置](#24%e5%a4%9a%e4%b8%aayml%e6%96%87%e4%bb%b6%e9%85%8d%e7%bd%ae)
+- [4.自动配置原理](#4%e8%87%aa%e5%8a%a8%e9%85%8d%e7%bd%ae%e5%8e%9f%e7%90%86)
+- [5.springBoot整合](#5springboot%e6%95%b4%e5%90%88)
+  - [5.1lombok应用](#51lombok%e5%ba%94%e7%94%a8)
+  - [5.2整合SpringMVC端口和静态资源](#52%e6%95%b4%e5%90%88springmvc%e7%ab%af%e5%8f%a3%e5%92%8c%e9%9d%99%e6%80%81%e8%b5%84%e6%ba%90)
+  - [5.3整合SpringMVC拦截器](#53%e6%95%b4%e5%90%88springmvc%e6%8b%a6%e6%88%aa%e5%99%a8)
+  - [5.4整合事务和连接池](#54%e6%95%b4%e5%90%88%e4%ba%8b%e5%8a%a1%e5%92%8c%e8%bf%9e%e6%8e%a5%e6%b1%a0)
+  - [5.6整合通用Mapper](#56%e6%95%b4%e5%90%88%e9%80%9a%e7%94%a8mapper)
+  - [5.7整合测试](#57%e6%95%b4%e5%90%88%e6%b5%8b%e8%af%95)
+  - [5.8整合Junit](#58%e6%95%b4%e5%90%88junit)
+  - [5.9整合Redis](#59%e6%95%b4%e5%90%88redis)
+- [6.项目部署](#6%e9%a1%b9%e7%9b%ae%e9%83%a8%e7%bd%b2)
+- [7.安装springBoot插件](#7%e5%ae%89%e8%a3%85springboot%e6%8f%92%e4%bb%b6)
 # 1. Spring Boot简介
 
 spring 诞生时是 Java 企业版（Java Enterprise Edition，JEE，也称 J2EE）的
