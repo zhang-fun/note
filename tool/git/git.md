@@ -1,9 +1,14 @@
+[参考笔记链接](https://github.com/Eished/git_notes)
+
+[视频课程链接](https://www.bilibili.com/video/BV1sJ411D7xN)
+
 # 目录
 
 - [目录](#%e7%9b%ae%e5%bd%95)
 - [1.Git是什么](#1git%e6%98%af%e4%bb%80%e4%b9%88)
 - [2.Git的安装](#2git%e7%9a%84%e5%ae%89%e8%a3%85)
-  - [2.1下载和安装](#21%e4%b8%8b%e8%bd%bd%e5%92%8c%e5%ae%89%e8%a3%85)
+  - [2.1windows下载和安装](#21windows%e4%b8%8b%e8%bd%bd%e5%92%8c%e5%ae%89%e8%a3%85)
+  - [2.2linux下载和安装](#22linux%e4%b8%8b%e8%bd%bd%e5%92%8c%e5%ae%89%e8%a3%85)
 - [3.Git配置和初始化](#3git%e9%85%8d%e7%bd%ae%e5%92%8c%e5%88%9d%e5%a7%8b%e5%8c%96)
   - [3.1配置](#31%e9%85%8d%e7%bd%ae)
     - [3.1.1配置用户信息](#311%e9%85%8d%e7%bd%ae%e7%94%a8%e6%88%b7%e4%bf%a1%e6%81%af)
@@ -16,10 +21,14 @@
   - [4.1 查看文件状态](#41-%e6%9f%a5%e7%9c%8b%e6%96%87%e4%bb%b6%e7%8a%b6%e6%80%81)
   - [4.2提交到暂存区](#42%e6%8f%90%e4%ba%a4%e5%88%b0%e6%9a%82%e5%ad%98%e5%8c%ba)
   - [4.3向仓库提交代码](#43%e5%90%91%e4%bb%93%e5%ba%93%e6%8f%90%e4%ba%a4%e4%bb%a3%e7%a0%81)
-  - [4.4查看提交记录](#44%e6%9f%a5%e7%9c%8b%e6%8f%90%e4%ba%a4%e8%ae%b0%e5%bd%95)
-  - [4.5撤销](#45%e6%92%a4%e9%94%80)
-  - [4.6上传到git远程仓库](#46%e4%b8%8a%e4%bc%a0%e5%88%b0git%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93)
-  - [4.7更新远程仓库到本地](#47%e6%9b%b4%e6%96%b0%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93%e5%88%b0%e6%9c%ac%e5%9c%b0)
+  - [4.4仓库文件重命名](#44%e4%bb%93%e5%ba%93%e6%96%87%e4%bb%b6%e9%87%8d%e5%91%bd%e5%90%8d)
+  - [4.5修改仓库名](#45%e4%bf%ae%e6%94%b9%e4%bb%93%e5%ba%93%e5%90%8d)
+  - [4.6查看提交记录](#46%e6%9f%a5%e7%9c%8b%e6%8f%90%e4%ba%a4%e8%ae%b0%e5%bd%95)
+  - [4.7撤销](#47%e6%92%a4%e9%94%80)
+  - [4.8上传到git远程仓库](#48%e4%b8%8a%e4%bc%a0%e5%88%b0git%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93)
+    - [4.81上传到gitHub](#481%e4%b8%8a%e4%bc%a0%e5%88%b0github)
+    - [4.8.2上传到gitee](#482%e4%b8%8a%e4%bc%a0%e5%88%b0gitee)
+  - [4.9更新远程仓库到本地](#49%e6%9b%b4%e6%96%b0%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93%e5%88%b0%e6%9c%ac%e5%9c%b0)
 - [5.Git进阶操作](#5git%e8%bf%9b%e9%98%b6%e6%93%8d%e4%bd%9c)
   - [5.1分支](#51%e5%88%86%e6%94%af)
       - [分支细分](#%e5%88%86%e6%94%af%e7%bb%86%e5%88%86)
@@ -47,10 +56,6 @@
   - [7.5SourceTree&Git部分名词解释](#75sourcetreegit%e9%83%a8%e5%88%86%e5%90%8d%e8%af%8d%e8%a7%a3%e9%87%8a)
 
 # 1.Git是什么
-
-参考笔记：https://github.com/Eished/git_notes
-
-课程链接：https://www.bilibili.com/video/BV1sJ411D7xN
 
 Git是目前世界上最先进的分布式版本控制系统。![git操作通用流程](https://user-gold-cdn.xitu.io/2018/4/25/162fcc0987bf1c0a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
@@ -85,7 +90,7 @@ Git是目前世界上最先进的分布式版本控制系统。![git操作通用
 
 # 2.Git的安装
 
-## 2.1下载和安装
+## 2.1windows下载和安装
 
 - 官网下载地址： https://git-scm.com/downloads
 
@@ -100,6 +105,12 @@ Git是目前世界上最先进的分布式版本控制系统。![git操作通用
   **推荐使用国内下载地址，下载速度较快。**
 
 参考链接：https://blog.csdn.net/u011535541/article/details/83379151
+
+## 2.2linux下载和安装
+
+```shell
+yum install git -y
+```
 
 # 3.Git配置和初始化
 
@@ -116,6 +127,8 @@ Git是目前世界上最先进的分布式版本控制系统。![git操作通用
 2. 配置用户邮箱：`git config --global user.email "youremail@github.com"`;
 
    **注意**：git config --global 参数，有了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然你也可以对某个仓库指定的不同的用户名和邮箱
+   
+3. 配置颜色（非必须）：`git config --global color.ui true`;
 
 ### 3.1.2查询配置信息
 
@@ -203,15 +216,35 @@ pwd 命令是用于显示当前的目录。
 
    提交文件时，发现漏掉几个文件，或者注释写错了，可以撤销上一次提交：;
 
-## 4.4查看提交记录
+## 4.4仓库文件重命名
+
+`git mv fileName newFileName`
+
+## 4.5修改仓库名
+
+一般来讲，默认情况下，在执行clone或者其他操作时，仓库名都是 origin 如果说我们想给他改改名字，比如我不喜欢origin这个名字，想改为 oschina 那么就要在仓库目录下执行命令:
+
+```bash
+git remote rename origin oschina
+```
+
+这样 你的远程仓库名字就改成了oschina，同样，以后推送时执行的命令就不再是 git push origin master 而是 git push oschina master 拉取也是一样的
+
+## 4.6查看提交记录
 
 > 查看信息
 
 1. `git diff --cached`
 
+   暂存区和本地仓库对比
+
    比较暂存区与上一版本的差异
 
    指定文件在暂存区和本地仓库的不同
+
+   `git diff `
+
+   本地目录和暂存区对比
 
 2. `git log`
 
@@ -227,13 +260,7 @@ pwd 命令是用于显示当前的目录。
 
    版本回退后,仍然可以看到所有的版本记录 方便查看每个操作步骤所在的版本,可以根据版本号自由前进后退
 
-5. 
-
-   
-
-   
-
-## 4.5撤销
+## 4.7撤销
 
 * 用暂存区中的文件覆盖工作目录中的文件：`` git checkout -- 文件名 ``  不加 ` -- 文件名 `则覆盖全部文件
 
@@ -257,11 +284,49 @@ pwd 命令是用于显示当前的目录。
   >
   > 1. 重命名文件，并将已改名文件提交到暂存区：`git mv [file-original] [file-renamed]`;
 
-## 4.6上传到git远程仓库
+## 4.8上传到git远程仓库
 
- git push origin master
+### 4.81上传到gitHub
 
-## 4.7更新远程仓库到本地
+```bash
+git push origin master
+```
+
+### 4.8.2上传到gitee
+
+[gitee版本git教程](https://gitee.com/help/categories/43)
+
+1. 修改仓库地址
+
+```bash
+#1.查看当前仓库对应的远程仓库地址
+#这条命令能显示你当前仓库中已经添加了的仓库名和对应的仓库地址，通常来讲，会有两条一模一样的记录，分别是fetch和push，其中fetch是用来从远程同步 push是用来推送到远程
+git remote -v
+#2.将一个远程仓库添加到本地的仓库中
+#注意: 1.origin是你的仓库的别名 可以随便改，但请务必不要与已有的仓库别名冲突 2. 仓库地址一般来讲支持 http/https/ssh/git协议，其他协议地址请勿添加
+git remote add origin  仓库地址
+#2.修改仓库对应的远程仓库地址
+git remote set-url origin 仓库地址
+
+```
+
+2. 配置ssh
+
+   ```bash
+   #1.生成公私钥对
+   ssh -Keygen
+   #2.复制公钥
+   cat ~/.ssh/id_rsa.pub
+   #3.手动复制公钥后，在gitee设置的SSH公钥里新增复制的公钥
+   ```
+
+3. 推送
+
+   ```bash
+   git push -u origin master
+   ```
+
+## 4.9更新远程仓库到本地
 
 git pull
 
