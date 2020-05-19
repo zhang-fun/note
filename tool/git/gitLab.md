@@ -1577,4 +1577,3 @@ gitlab-ctl restart
 ![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200406000515564-207206163.png)
 
 如果不行 可以撤回来
-
