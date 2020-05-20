@@ -1,6 +1,8 @@
 [视频教程链接](https://www.bilibili.com/video/BV11J411674t?p=14)
 
-[笔记参考链接](https://blog.csdn.net/weixin_43876317/article/details/103511379)
+[笔记参考链接1](https://blog.csdn.net/weixin_43876317/article/details/103511379)
+
+[笔记参考链接2](https://www.cnblogs.com/mingerlcm/category/976091.html)
 
 # 目录
 
