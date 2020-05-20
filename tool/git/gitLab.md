@@ -2,9 +2,40 @@
 
 [笔记参考链接](https://blog.csdn.net/weixin_43876317/article/details/103511379)
 
+# 目录
+
+- [目录](#%e7%9b%ae%e5%bd%95)
+- [1.GitLab简介](#1gitlab%e7%ae%80%e4%bb%8b)
+  - [1.1什么是gitlab](#11%e4%bb%80%e4%b9%88%e6%98%afgitlab)
+  - [1.2gitlab和github有什么不同](#12gitlab%e5%92%8cgithub%e6%9c%89%e4%bb%80%e4%b9%88%e4%b8%8d%e5%90%8c)
+  - [1.3gitlab优势和使用场景](#13gitlab%e4%bc%98%e5%8a%bf%e5%92%8c%e4%bd%bf%e7%94%a8%e5%9c%ba%e6%99%af)
+- [2.GitLab服务组成](#2gitlab%e6%9c%8d%e5%8a%a1%e7%bb%84%e6%88%90)
+- [3.GitLab安装配置](#3gitlab%e5%ae%89%e8%a3%85%e9%85%8d%e7%bd%ae)
+  - [3.1windows安装gitlab](#31windows%e5%ae%89%e8%a3%85gitlab)
+  - [3.2linux安装gitlab](#32linux%e5%ae%89%e8%a3%85gitlab)
+    - [3.2.1安装](#321%e5%ae%89%e8%a3%85)
+    - [3.2.2汉化](#322%e6%b1%89%e5%8c%96)
+    - [3.2.3邮箱配置](#323%e9%82%ae%e7%ae%b1%e9%85%8d%e7%bd%ae)
+  - [3.3gitlab常用命令](#33gitlab%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4)
+- [5.GitLab日常使用](#5gitlab%e6%97%a5%e5%b8%b8%e4%bd%bf%e7%94%a8)
+  - [5.1用户、用户组、项目仓管之间的关系](#51%e7%94%a8%e6%88%b7%e7%94%a8%e6%88%b7%e7%bb%84%e9%a1%b9%e7%9b%ae%e4%bb%93%e7%ae%a1%e4%b9%8b%e9%97%b4%e7%9a%84%e5%85%b3%e7%b3%bb)
+  - [5.2如何创建用户、用户组、项目](#52%e5%a6%82%e4%bd%95%e5%88%9b%e5%bb%ba%e7%94%a8%e6%88%b7%e7%94%a8%e6%88%b7%e7%bb%84%e9%a1%b9%e7%9b%ae)
+  - [5.3推送项目](#53%e6%8e%a8%e9%80%81%e9%a1%b9%e7%9b%ae)
+    - [5.3.1配置 SSHKEY](#531%e9%85%8d%e7%bd%ae-sshkey)
+    - [5.3.2推送本地仓库到 GitLab](#532%e6%8e%a8%e9%80%81%e6%9c%ac%e5%9c%b0%e4%bb%93%e5%ba%93%e5%88%b0-gitlab)
+    - [5.3.3克隆 GitLab 仓库到本地客户端](#533%e5%85%8b%e9%9a%86-gitlab-%e4%bb%93%e5%ba%93%e5%88%b0%e6%9c%ac%e5%9c%b0%e5%ae%a2%e6%88%b7%e7%ab%af)
+- [6.GitLab运维:备份、恢复、升级](#6gitlab%e8%bf%90%e7%bb%b4%e5%a4%87%e4%bb%bd%e6%81%a2%e5%a4%8d%e5%8d%87%e7%ba%a7)
+    - [6.1备份配置](#61%e5%a4%87%e4%bb%bd%e9%85%8d%e7%bd%ae)
+    - [6.2手动备份](#62%e6%89%8b%e5%8a%a8%e5%a4%87%e4%bb%bd)
+    - [6.3定时备份](#63%e5%ae%9a%e6%97%b6%e5%a4%87%e4%bb%bd)
+    - [6.4gitlab恢复实践](#64gitlab%e6%81%a2%e5%a4%8d%e5%ae%9e%e8%b7%b5)
+    - [6.5升级](#65%e5%8d%87%e7%ba%a7)
+
 # 1.GitLab简介
 
 ## 1.1什么是gitlab
+
+学习gitlab之前建议先学习git：[git教程传送门](https://github.com/zxc054/note/blob/master/tool/git/git.md)
 
 GitLab是一种类似github的服务，组织可以使用它来提供git存储库的内部管理。 它是一个自我托管的Git-repository管理系统，可以保持用户代码的私密性，并且可以轻松地部署代码的更改。
 
@@ -864,16 +895,16 @@ GitLab 是通过组（group）的概念来统一管理仓库（project）和用�
 
     
 
-   ### Command line instructions 命令行怎么处理
+   Command line instructions 命令行怎么处理
 
-   ##### Git global setup 全局配置
+   **Git global setup** 全局配置
 
    ```bash
    git config --global user.name "Administrator"
    git config --global user.email "admin@example.com"
    ```
 
-   ##### Create a new repository 创建空的仓库
+   **Create a new repository** 创建空的仓库
 
    如果新的仓库没有，本地没有仓库，可以克隆仓库到本地
 
@@ -887,9 +918,9 @@ GitLab 是通过组（group）的概念来统一管理仓库（project）和用�
    git push -u origin master
    ```
 
-   ##### Existing folder 
+   **Existing folder** 
 
-   ##### 本地如果存在一个文件夹，不是存在一个仓库
+   本地如果存在一个文件夹，不是存在一个仓库
 
    ```bash
    // 到这个文件夹
@@ -903,7 +934,7 @@ GitLab 是通过组（group）的概念来统一管理仓库（project）和用�
    git push -u origin master
    ```
 
-   ##### Git repository
+   **Git repository**
 
    本地存在仓库
 
@@ -1320,6 +1351,13 @@ vim  /etc/gitlab/gitlab.rb
 
 加到最后
 
+```bash
+#默认的gitlab_rails['backup_path'] = "/var/opt/gitlab/backups"
+gitlab_rails['backup_path'] = "/data/backup/gitlab"
+gitlab_rails['backup_keep_time'] = 604800#备份保留七天
+gitlab_rails['manage_backup_path'] = true
+```
+
 ![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200405222519845-898880788.png)
 
  保存 wq退出
@@ -1356,6 +1394,8 @@ drwx------ 2 git root 6 Mar 22 23:25 /var/opt/gitlab/bakups/
 ### 6.2手动备份
 
 在命令执行：/usr/bin/gitlab-rake gitlab:backup:create 生成一次备份
+
+或者gitlab-rake gitlab:backup:create
 
 [![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
 
@@ -1396,7 +1436,8 @@ Deleting old backups ... done. (0 removed)
 ```bash
 [root@ci-node1 git_test]# ll /data/backup/gitlab/
 total 72
--rw------- 1 git git 71680 Apr  5 22:44 1586097870_2020_04_05_10.2.2_gitlab_backup.tar　　　　　　　　　　　　　　　　　　　　　　　　时间搓　　　　年月日  gitlab版本号
+-rw------- 1 git git 71680 Apr  5 22:44 1586097870_2020_04_05_10.2.2_gitlab_backup.tar　　　　　　　　　　　　　　　　　　　　　　　　
+时间戳　　　　年月日  gitlab版本号
 ```
 
 备份包括所有库，文档 打包成一个压缩包
@@ -1407,8 +1448,25 @@ total 72
 
 定时任务crontab中加入
 
+```bash
+crontab -e
+```
+
 通过在定时任务里添加：
+
+```bash
+# * * * * * 
+#分 时 日 月 周
 0 2 * * * /opt/gitlab/bin/gitlab-rake gitlab:backup:create CRON=1
+#或者00 02 * * * /opt/gitlab/bin/gitlab-rake gitlab:backup:create &>/dev/null
+```
+
+查看定时任务
+
+```bash
+crontab -l
+```
+
 我们来实现定时备份，由于代码是一个企业非常重要的资产，所以我们要重视 GitLab的备份工作。
 
 至少做到每天备份一次，平时要注意检查备份的完整性。 至少每天一次全量的备份
@@ -1547,6 +1605,10 @@ run: unicorn: (pid 109700) 21s; run: log: (pid 6483) 502050s
 ```
 
 再看看gitlab页面 看看仓库回来了吗
+
+```bash
+gitlab-ctl tail#查看日志
+```
 
  恢复完成
 
