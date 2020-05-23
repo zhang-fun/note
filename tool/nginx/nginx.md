@@ -87,7 +87,7 @@ vi /usr/local/nginx/conf/nginx.conf
 
 localhost修改为你服务器ip地址。
 
-![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/aHR0cHM6Ly9pbWFnZXMyMDE1LmNuYmxvZ3MuY29tL2Jsb2cvMTA5NTMyOS8yMDE3MDMvMTA5NTMyOS0yMDE3MDMyODE5MzkwMDAyOS0yMDI0MDE3NzUyLnBuZw)
+![image-20200524040748031](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200524040748031.png)
 
 ## 3.3启动
 
@@ -109,7 +109,7 @@ localhost修改为你服务器ip地址。
 
 ps -ef | grep nginx
 
-![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/20180821162447379)
+![image-20200524040905731](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200524040905731.png)
 
  
 
@@ -227,5 +227,3 @@ Nginx配置
 　　192.168.25.148 www.taobao.com
 
 　　192.168.25.148 www.baidu.com
-
-![image-20200524024814056](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200524024814056.png)
