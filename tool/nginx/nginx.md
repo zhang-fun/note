@@ -227,3 +227,5 @@ Nginx配置
 　　192.168.25.148 www.taobao.com
 
 　　192.168.25.148 www.baidu.com
+
+![image-20200524024814056](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200524024814056.png)
