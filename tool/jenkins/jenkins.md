@@ -1,4 +1,4 @@
-视频课程链接](https://www.bilibili.com/video/BV11J411674t)
+[视频课程链接](https://www.bilibili.com/video/BV11J411674t)
 
 [参考笔记链接](https://www.bilibili.com/video/BV11J411674t/?p=22)
 
