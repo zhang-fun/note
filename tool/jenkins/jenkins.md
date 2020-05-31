@@ -2,6 +2,66 @@
 
 [参考笔记链接](https://www.bilibili.com/video/BV11J411674t/?p=22)
 
+# 目录：
+
+- [目录：](#目录)
+- [1.Jenkins基本介绍](#1jenkins基本介绍)
+  - [1.1Jenkins介绍](#11jenkins介绍)
+- [2.Jenkins安装部署](#2jenkins安装部署)
+  - [2.1Jenkins安装](#21jenkins安装)
+  - [2.2汉化](#22汉化)
+- [3.Jenkins插件管理](#3jenkins插件管理)
+  - [3.1**jenkins插件下载镜像加速**](#31jenkins插件下载镜像加速)
+  - [3.2手动安装](#32手动安装)
+  - [3.3下载的插件直接装入linux中](#33下载的插件直接装入linux中)
+- [4.Jenkins目录结构](#4jenkins目录结构)
+- [5.Jenkins FreeStyle](#5jenkins-freestyle)
+  - [5.1创建第一个freestyle](#51创建第一个freestyle)
+- [6.jenkins整合gitlab](#6jenkins整合gitlab)
+  - [6.1Jenkins获取Gitlab源代码](#61jenkins获取gitlab源代码)
+- [7.jenkins自动部署html](#7jenkins自动部署html)
+  - [7.1准备好环境 nginx + 2web节点](#71准备好环境-nginx--2web节点)
+  - [7.2手动实现代码上线](#72手动实现代码上线)
+  - [7.3将步骤写成SHell脚本](#73将步骤写成shell脚本)
+  - [7.4将jenkins项目加入该脚本](#74将jenkins项目加入该脚本)
+  - [7.5gitlab提交代码](#75gitlab提交代码)
+  - [7.6tag包方式发布代码](#76tag包方式发布代码)
+  - [7.7版本回退](#77版本回退)
+- [8.jenkins 部署java项目](#8jenkins-部署java项目)
+  - [8.1Java项目部署基本概述:](#81java项目部署基本概述)
+  - [8.2手动部署Java项目至Web集群](#82手动部署java项目至web集群)
+    - [8.2.1搭建Nginx+Tomcat集群架构](#821搭建nginxtomcat集群架构)
+    - [8.2.2.开发提交Java源代码至gitlab仓库](#822开发提交java源代码至gitlab仓库)
+    - [8.2.3手动获取Java源代码，然后使用maven进行编译?](#823手动获取java源代码然后使用maven进行编译)
+    - [8.2.4将编译后的war包部署至Tomcat集群](#824将编译后的war包部署至tomcat集群)
+    - [8.2.5最后通过浏览器访问测试，检测项目是否部署OK](#825最后通过浏览器访问测试检测项目是否部署ok)
+  - [!img8.3自动部署Java项目至Web集群](#img-srce5ce68891e79a84e59d9ae69e9ce4ba915cnote5ctool5cjenkins5cjenkinsassets5c50dd0165dec60af49201b38afc809951_7f0131fd-d1c3-4957-82f2-cafbd51af622png-altimg83自动部署java项目至web集群)
+    - [8.3.1Jenkins安装Maven插件](#831jenkins安装maven插件)
+    - [8.3.2Jenkins配置JDK路径以及Manven路径](#832jenkins配置jdk路径以及manven路径)
+    - [8.3.3创建Manven项目](#833创建manven项目)
+- [9.Jenkins集成SonarQube代码质检](#9jenkins集成sonarqube代码质检)
+  - [9.1SonarQube基本概述](#91sonarqube基本概述)
+  - [9.2SonarQube服务安装](#92sonarqube服务安装)
+    - [9.2.1环境规划](#921环境规划)
+    - [9.2.2环境准备](#922环境准备)
+  - [9.3SonarQube插件管理](#93sonarqube插件管理)
+    - [9.31安装中文汉化插件](#931安装中文汉化插件)
+    - [9.3.2安装代码检查插件](#932安装代码检查插件)
+    - [9.3.3离线安装插件](#933离线安装插件)
+  - [9.4SonarQube项目分析实践](#94sonarqube项目分析实践)
+    - [9.4.1分析Java项目](#941分析java项目)
+  - [9.5Jenkins集成SonarQube](#95jenkins集成sonarqube)
+  - [9.6配置FreeStyle集成SonarQube](#96配置freestyle集成sonarqube)
+  - [9.7配置Maven项目集成SonarQube](#97配置maven项目集成sonarqube)
+- [10.Jenkins集成钉钉通知](#10jenkins集成钉钉通知)
+- [11.Jenkins集成Pipenline流水线](#11jenkins集成pipenline流水线)
+  - [11.1Pipenline基本概述](#111pipenline基本概述)
+  - [11.2Pipenline语法示例](#112pipenline语法示例)
+  - [11.3Pipenline 初次体验](#113pipenline-初次体验)
+  - [11.4Pipeline构建html](#114pipeline构建html)
+  - [11.5BlueOcan可视化](#115blueocan可视化)
+- [12.Jenkins分布式构建](#12jenkins分布式构建)
+
 # 1.Jenkins基本介绍
 
 ## 1.1Jenkins介绍
@@ -1774,7 +1834,7 @@ https://oapi.dingtalk.com/robot/send?access_token=d75b0fbaa39ac88f9ebe09ca6c70ea
 
 [参考教程链接](https://blog.chenjiangfeng.cn/?p=600)
 
-## 1、Jenkins集成Pipenline基本概述
+## 11.1Pipenline基本概述
 
 1. 什么是Pipenline？
 
@@ -1788,7 +1848,7 @@ https://oapi.dingtalk.com/robot/send?access_token=d75b0fbaa39ac88f9ebe09ca6c70ea
 
    可以实现持续集成持续部署，节省产品发布时间，优化部署策略，节省人力成本，自动化脚本复用等等
 
-## 2、Jenkins Pipenline语法示例
+## 11.2Pipenline语法示例
 
 Pipenline基础语法
 
@@ -1796,7 +1856,7 @@ Pipenline基础语法
 
 Pipenline是固定格式，必须遵循
 
-## 3、Jenkins Pipenline 初次体验
+## 11.3Pipenline 初次体验
 
 1. 通过Jenkins创建一个流水线项目
 
@@ -1865,7 +1925,7 @@ Pipenline是固定格式，必须遵循
 
 ![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/de5f74a01e52266bede55c91b0ee47bb_f349dc61-8821-412d-a01d-fe8de7fee640.png)
 
-## 4、Jenkins pipeline构建html
+## 11.4Pipeline构建html
 
 代码拉取–>代码检测–>代码构建–>代码部署–>消息通知
 
@@ -2013,7 +2073,7 @@ fi
          }
 ```
 
-## 5、Jenkins BlueOcan可视化
+## 11.5BlueOcan可视化
 
 ​    Blue Ocan为开发人员提供了更具有乐趣的Jenkins使用方式，它是从基础开始构建的，实现了一种全新的、现代化的用户界面，有助于实现持续交付。
 
