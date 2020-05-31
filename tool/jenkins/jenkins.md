@@ -1,5 +1,3 @@
-[
-
 视频课程链接](https://www.bilibili.com/video/BV11J411674t)
 
 [参考笔记链接](https://www.bilibili.com/video/BV11J411674t/?p=22)
@@ -63,7 +61,7 @@ jenkins 默认8080端口，如果和别的程序冲突，可以修改端口号
 vim /etc/sysconfig/jenkins
 ```
 
-<img src="https://img-blog.csdnimg.cn/20200229111924619.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FpdXlleWlqaWFu,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" style="zoom:67%;" />
+![image-20200531191345616](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200531191345616.png)
 
 可以看到已经修改了端口号
 
@@ -167,7 +165,7 @@ Jenkins 默认监听 8080，服务启动后我们可以在浏览器中输入 htt
 
 [参考教程链接](https://www.cnblogs.com/Ivan-Wu/p/10451376.html)
 
-<img src="https://img2018.cnblogs.com/blog/1461475/201902/1461475-20190228161633330-601690592.png" alt="img" style="zoom: 67%;" />
+![image-20200531191450957](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200531191450957.png)
 
 
 
@@ -183,7 +181,7 @@ systemctl status jenkins
 
 查看jenkins的状态：
 
-![img](https://img2018.cnblogs.com/blog/1461475/201902/1461475-20190228161350029-7125828.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1461475-20190228161350029-7125828.png)
 
 这里jenkins的状态是正在运行的，那么既然是运行的，为何无法访问呢。
 
@@ -195,7 +193,7 @@ systemctl status firewalld
 
 这里发现防火墙正运行，应该是没有开放jenkins的端口：
 
-![img](https://img2018.cnblogs.com/blog/1461475/201902/1461475-20190228162441345-1427657656.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1461475-20190228162441345-1427657656.png)
 
 我们先用下面的代码来查看有没有开放我们设置的jenkins的端口：
 
@@ -217,13 +215,13 @@ systemctl reload firewalld
 
 然后继续访问jenkins，发现还是不可以访问，这里博主用的是阿里云的服务器，会自带防火墙，需要去阿里云-》控制台=》轻量应用服务器-》防火墙 中开放端口才可以访问：
 
-<img src="https://img2018.cnblogs.com/blog/1461475/201902/1461475-20190228163603024-555421978.png" alt="img" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/zxc054/static/img/1461475-20190228163603024-555421978.png" alt="img" style="zoom:67%;" />
 
 其他服务器不知道有没有这种设定，阿里云需要设置，如果使用的是云服务器ecs，则需要进入安全组进行配置。
 
 **需要解锁jenkins**
 
-<img src="https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200406185302570-115789958.png" alt="img" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200406185302570-115789958.png" alt="img" style="zoom:50%;" />
 
 **获取访问秘钥**
 
@@ -234,7 +232,7 @@ d329e9ec1a4a42adba9122562c0b8186
 
 根据页面提示，服务器对应的位置找到初始化的密码，复制密码粘贴在此页面的文本框中，点击 continue 按钮继续
 
-<img src="https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200406185516959-1400050522.png" alt="img" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200406185516959-1400050522.png" alt="img" style="zoom:50%;" />
 
  
 
@@ -242,18 +240,18 @@ d329e9ec1a4a42adba9122562c0b8186
 
  
 
- <img src="https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200406185734171-661194646.png" alt="img" style="zoom:50%;" />
+ <img src="https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200406185734171-661194646.png" alt="img" style="zoom:50%;" />
 
 此页面要用户选择初始化安装的插件，这两种方式我们都不用，我们选择跳过此步，后面我们采用其他方式安装插件。
-<img src="https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200406190307807-1452138565.png" alt="img" style="zoom: 50%;" />
+<img src="https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200406190307807-1452138565.png" alt="img" style="zoom: 50%;" />
 
 点击完成 jenkins 安装配置， 
 
-<img src="https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200406190541215-1540053537.png" alt="img" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200406190541215-1540053537.png" alt="img" style="zoom:50%;" />
 
 进入 Jenkins 主页面
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200406190652010-671345240.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200406190652010-671345240.png)
 
  
 
@@ -261,7 +259,7 @@ d329e9ec1a4a42adba9122562c0b8186
 
  由于默认 jenkins 的密码较复杂，所以我首先更改 admin 用户的密码。 
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200406190837077-1438272587.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200406190837077-1438272587.png)
 
  
 
@@ -271,7 +269,7 @@ d329e9ec1a4a42adba9122562c0b8186
 
 点击右上解用户，下拉选择设置选项，进入用户设置页面、
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200406191053565-849505580.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200406191053565-849505580.png)
 
  
 
@@ -303,11 +301,11 @@ https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
 
 进入插件管理
 
-<img src="https://img-blog.csdn.net/20180717095421780?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lvdTIyNw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="系统管理" style="zoom:50%;" />
+![image-20200531191921292](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200531191921292.png)
 
 点击高级，修改升级站点的地址为清华大学镜像地址
 
-<img src="https://img-blog.csdn.net/20180717095438606?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lvdTIyNw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="插件管理" style="zoom:50%;" />
+![image-20200531192045279](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200531192045279.png)
 
 有的时候更换镜像之后下载插件还是走的官方地址
 
@@ -352,11 +350,11 @@ location /download/plugins
 
 如果是在清华镜像下载插件，则不存在版本的问题。下载后得到的一个以.hpi 为扩展名的文件，
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200406232015049-1212613561.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200406232015049-1212613561.png)
 
  下载 backup.hpi 后，我们手动安装 backup 插件，进入到插件管理页面
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200406232835003-719708940.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200406232835003-719708940.png)
 
 按上图提示，上传完成后，重新启动 jenkins，完成插件的安装。
 
@@ -481,37 +479,37 @@ touch file
 
 我们从码云 拿到项目的url地址导入 拿到url回到gitlab
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200411171954357-568493461.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200411171954357-568493461.png)
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200411173818571-840813325.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200411173818571-840813325.png)
 
  选择私有 点击创建仓库
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200411173917477-168033937.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200411173917477-168033937.png)
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200411174238240-1252980020.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200411174238240-1252980020.png)
 
 仓库创建好了以后，就有地址了，使用jenkins把这个仓库地址拉到jenkins上去，然后在jenkins 把HTML代码部署到指定的服务器上 跑起来
 
 最终目的：gitlab仓库上的代码拉到我们jenkins上，然后用jenkins发到另外一台服务器上去进行部署
 
 我们使用上面的 job 进行配置，在"源码管理"部分配置拉取 Gitlab 上的 monitor 仓库，该仓库是一个纯 html 代码项目，首先在 Gitlab 上复制仓库地址
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200411175339925-1218682436.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200411175339925-1218682436.png)
 
 然后回到 Jenkins 上 My-freestyle-job 配置页面，下拉到"源码管理"部分，勾选 git选项
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200411180115662-762215824.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200411180115662-762215824.png)
 
  
 
 如果遇到这种错误
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200411213931057-348962235.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200411213931057-348962235.png)
 
 jenkins服务器 要安装git
 
  粘贴完仓库地址后，出现如下图所示错误提示， 
 
- ![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200411225120399-82488658.png)
+ ![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200411225120399-82488658.png)
 
 根据提示信息显示为 key 认证失败，因为我们使用的 SSH 方式连接仓库，所以需要配置SSH认证，jenkins这台机器没有做和gitlab的认证，没有做认证，实际上在前面我们学习Gitlab的时候，我们已经配置了ci-node2这台机子的root用户的公钥在 Gitlab 上的 dev 用户
 
@@ -535,7 +533,7 @@ jenkins  108096  0.1 55.4 2339100 370532 ?      Ssl  Apr07   6:01 /etc/alternati
 
 把ci-node2主机的公钥配给gitlab 的ssh key上 （把之前gitlab ci-node2绑定dev用户的key删除），绑定gitlab的root用户上 ，gitlab 一个用户可以配多个key
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200411230913761-70184309.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200411230913761-70184309.png)
 
 如果配不上就是 之前添加过了，不让重复添加，一个可以在gitlab是唯一的
 
@@ -543,7 +541,7 @@ jenkins  108096  0.1 55.4 2339100 370532 ?      Ssl  Apr07   6:01 /etc/alternati
 
 还会出现key认证失败，因为以jenkins用户启动jenkins
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200411233551283-423938946.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200411233551283-423938946.png)
 
  
 
@@ -556,10 +554,10 @@ jenkins  108096  0.1 55.4 2339100 370532 ?      Ssl  Apr07   6:01 /etc/alternati
 cat /root/.ssh/id_rsa
 ```
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200411235619528-1021790110.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200411235619528-1021790110.png)
 
 根据提示添加用户认证后，回到配置仓库页面，选择认证方式为新添加的认证，错误消失。 认证通过了
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200411235800381-1888152627.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200411235800381-1888152627.png)
 
 如果还报错，有可能是你的linux上没有安装git
 
@@ -605,7 +603,7 @@ root     123127  0.0  0.1 112712   968 pts/0    R+   00:16   0:00 grep --color=a
 
 回到 job 的源码配置页面
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200412002153334-320062673.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200412002153334-320062673.png)
 
  
 
@@ -632,7 +630,7 @@ root     123127  0.0  0.1 112712   968 pts/0    R+   00:16   0:00 grep --color=a
 
 配置完成选择保存
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200412000718081-1425042677.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200412000718081-1425042677.png)
 
  
 
@@ -642,7 +640,7 @@ root     123127  0.0  0.1 112712   968 pts/0    R+   00:16   0:00 grep --color=a
 
 
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200412003045729-906582178.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200412003045729-906582178.png)
 
  
 
@@ -650,7 +648,7 @@ root     123127  0.0  0.1 112712   968 pts/0    R+   00:16   0:00 grep --color=a
 
  
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200412003238270-1475453484.png)
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/1137246-20200412003238270-1475453484.png)
 
  
 
@@ -658,11 +656,7 @@ root     123127  0.0  0.1 112712   968 pts/0    R+   00:16   0:00 grep --color=a
 
  我们去客户端 去workspace 工作区目录看看
 
-![img](https://img2020.cnblogs.com/blog/1137246/202004/1137246-20200412003421519-1303660989.png)
-
- 
-
-
+![img](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200531192621337-1590924931274.png)
 
  代码都拉到了
 
