@@ -4,7 +4,9 @@
 
 [视频课程链接](https://www.bilibili.com/video/BV15e411W7aA)
 
-> Maven基础教程资料连接 链接：https://pan.baidu.com/s/1xvF3eaW64cqDC3D4q634zw 
+> Maven基础教程资料
+>
+> 链接：https://pan.baidu.com/s/1xvF3eaW64cqDC3D4q634zw 
 >
 > 提取码：2iv2
 
