@@ -270,7 +270,7 @@ maven会先找用户配置，如果找到则以用户配置文件为准，否则
 
 ### 2.3.1Maven工程的目录结构
 
-![image-20200603214617986](E:\我的坚果云\note\JAVA\maven\maven.assets\image-20200603214617986.png)
+![image-20200603214617986](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200603214617986.png)
 
 作为一个 maven 工程，它的 src目录和 pom.xml 是必备的。
 进入 src目录后，我们发现它里面的目录结构如下：
@@ -501,7 +501,7 @@ Lifecycle)，一个依赖管理系统(Dependency Management System)，和用来�
    http://mvnrepository.com/
    网站搜索示例：
 
-   ![image-20200604002857165](E:\我的坚果云\note\JAVA\maven\maven.assets\image-20200604002857165.png)
+   ![image-20200604002857165](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200604002857165.png)
 
    ![image-20200604002908511](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200604002908511.png)
 
