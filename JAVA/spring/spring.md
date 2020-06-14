@@ -393,15 +393,15 @@ public class Client {
 
 运行结果：
 
-![image-20200614022459408](E:\我的坚果云\note\JAVA\spring\spring.assets\image-20200614022459408.png)
+![image-20200614022459408](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200614022459408.png)
 
 ## 3.3Spring基于XML的IOC细节[ 掌握]
 
 ### 3.3.1 spring  中工厂的类结构图
 
-![image-20200614022614050](E:\我的坚果云\note\JAVA\spring\spring.assets\image-20200614022614050.png)
+![image-20200614022614050](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200614022614050.png)
 
-![image-20200614022704843](E:\我的坚果云\note\JAVA\spring\spring.assets\image-20200614022704843.png)
+![image-20200614022704843](https://cdn.jsdelivr.net/gh/zxc054/static/img/image-20200614022704843.png)
 
 #### 3.3.1.1BeanFactory 和ApplicationContext的区别
 
